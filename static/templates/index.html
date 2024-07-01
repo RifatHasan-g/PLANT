@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Segmentation</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Image Segmentation</h1>
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept="image/*" />
+      <input type="submit" value="Upload" />
+    </form>
+    <div>
+      <h2>Segmented Image:</h2>
+      {% if img_data %}
+      <img src="data:image/jpeg;base64,{{ img_data }}" alt="Segmented Image" />
+      {% endif %}
+    </div>
+  </body>
+</html>
